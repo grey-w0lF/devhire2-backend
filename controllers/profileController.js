@@ -44,10 +44,6 @@ const createProfile = (req, res) => {
           return res.json(profileFields);
         });
       } else {
-        // Profile.findOne({ name: profileFields.name }).then((profile) => {
-        //   if (profile) {
-        //     res.status(400).json({ message: "That handle already exists" });
-        //   }
         new Profile(profileFields)
           .save()
           .then((profile) => res.json(profileFields));
