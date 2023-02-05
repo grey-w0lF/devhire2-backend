@@ -15,23 +15,23 @@ app.use(express.json());
 app.use(express.static("upload/images"));
 
 // 👇️ specify origins to allow
-const whitelist = ["http://localhost:3000", "http://example2.com"];
+// const whitelist = ["http://localhost:3000"];
 
 // ✅ Enable pre-flight requests
-app.options("*", cors());
+// app.options("*", cors());
 
-const corsOptions = {
-  credentials: true,
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
+// const corsOptions = {
+//   credentials: true,
+//   origin: (origin, callback) => {
+//     if (whitelist.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 //
 //Configuring .Env Functionalities
